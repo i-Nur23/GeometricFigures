@@ -10,7 +10,7 @@
 
             if (!isCircleExsists())
             {
-                throw new Exception("Such circle doesn't exist");
+                throw new ArgumentException("Such circle doesn't exist");
             }
         }
 

@@ -22,14 +22,14 @@
             Sides.Add(z);
             Sides.Sort();
             
-            if (Math.Pow(Sides[2], 2) == Math.Pow(Sides[0], 2) + Math.Pow(Sides[1], 2))
+            if (Math.Abs(Math.Pow(Sides[2], 2) - Math.Pow(Sides[0], 2) - Math.Pow(Sides[1], 2)) < 10e-5)
             {
                 isRectangular = true;
             }
 
             if (!isTriangleExists())
             {
-                throw new Exception("Such triangle doesn't exists");
+                throw new ArgumentException("Such triangle doesn't exists");
             }
         }
 
