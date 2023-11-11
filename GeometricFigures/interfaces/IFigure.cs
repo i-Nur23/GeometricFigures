@@ -2,6 +2,7 @@
 {
     public interface IFigure
     {
-        double FindSquare();
+        double Square { get; }
+        double Perimeter { get; }
     }
 }

@@ -8,13 +8,35 @@ namespace GeometricFigures.Tests
     public class GeometricFiguresTests
     {
         [Test]
-        public void HlafPerimetr_IsRight_ReturnsTrue()
+        public void HalfPerimetr_IsRight_ReturnsTrue()
         {
             var triangle = new Triangle(6, 8, 7);
 
             var halfPerimetr = triangle.HalfPerimetr;
 
             Assert.AreEqual(halfPerimetr, 10.5, 10e-10);
+        }
+
+        [Test]
+        public void SquarePerimetr_IsRight_ReturnsTrue()
+        {
+            var triangle = new Triangle(6, 8, 7);
+
+            var perimeter = triangle.Perimeter;
+
+            Assert.AreEqual(perimeter, 21, 10e-10);
+        }
+
+        [TestCase(1, 6.283184)]
+        [TestCase(5.5, 34.55752)]
+        [TestCase(10.2, 64.08849)]
+        public void CirclePerimetr_IsRight_ReturnsTrue(double radius, double expectedPerimeter)
+        {
+            var circle = new Circle(radius);
+
+            var perimetr = circle.Perimeter;
+
+            Assert.AreEqual(expectedPerimeter, perimetr, 10e-6 );
         }
 
         [TestCase(30, 2827.43339)]
@@ -24,7 +46,7 @@ namespace GeometricFigures.Tests
         {
             var circle = new Circle(rad);
 
-            var square = circle.FindSquare();
+            var square = circle.Square;
 
             Assert.AreEqual(square, expected, 10e-5);
         }
@@ -36,7 +58,7 @@ namespace GeometricFigures.Tests
         {
             var triangle = new Triangle(x,y,z);
 
-            var square = triangle.FindSquare();
+            var square = triangle.Square;
 
             Assert.AreEqual(square, expected, 10e-5);
         }
@@ -48,7 +70,7 @@ namespace GeometricFigures.Tests
         {
             var triangle = new Triangle(x, y, z);
 
-            var isRect = triangle.isRectangular;
+            var isRect = triangle.IsRectangular;
 
             Assert.AreEqual(isRect, expected);
         }
